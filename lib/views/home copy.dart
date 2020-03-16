@@ -16,92 +16,97 @@ class _HomeState extends State<Home> {
   TextEditingController _controllerSobreNome = TextEditingController();
   TextEditingController _controllerCelular = TextEditingController();
   TextEditingController _controllerConfirmarSenha = TextEditingController();
-  bool _tipoUsuario = false;
+
+  // bool _tipoUsuario;
 
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      // title: Text(widget.title),
-      //   ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        //color: Colors.black,
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
+        // appBar: AppBar(
+        // title: Text(widget.title),
+        //   ),
+        body: Container(
+            child: Center(
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Stack(
               children: <Widget>[
-                Stack(
-                  children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height / 2.1,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/fundo.png"),
-                            fit: BoxFit.cover),
-                        //  color: Colors.red,
-                      ),
-                    ),
-                    Container(
-                      // motinha
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height / 2.5,
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 2.3,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/images/fundo.png"),
+                          fit: BoxFit.cover)),
+                ),
+                Container(
+                  // motinha
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 2.1,
 
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage("assets/images/moto.png"),
-                          //fit: BoxFit.cover
-                        ),
-                        //  color: Colors.amber
-                      ),
-                    ),
-                    SizedBox(
-                      height: 1000,
-                    ),
-                    Container(
-                      //  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                      margin:
-                          const EdgeInsets.only(top: 212, left: 20, right: 20),
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            
-                            color: Colors.white,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                    image: AssetImage("assets/images/moto.png"),
+                    //fit: BoxFit.cover
+                  )),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 2.3,
+                ),
+                // Container(
+                //   // Logo
+                //   // width: MediaQuery.of(context).size.width,
+                //   height: MediaQuery.of(context).size.height / 1.3,
 
-                            blurRadius:
-                            0, // has the effect of softening the shadow
-                            spreadRadius:
-                            0, // has the effect of extending the shadow
-                            offset: Offset(
-                              0, // horizontal, move right 10
-                              0, // vertical, move down 10
-                            ),
-                          )
-                        ],
-                        //  border: Border.all(color: Colors.blueAccent),
-                        borderRadius: BorderRadius.circular(15),
+                //   decoration: BoxDecoration(
+                //       image: DecorationImage(
+                //     image: AssetImage("assets/images/logo.png"),
+                //     // fit: BoxFit.cover
+                //   )),
+                // ),
+              ],
+            ),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    margin: const EdgeInsets.all(9.0),
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white,
+                          blurRadius:
+                              1.0, // has the effect of softening the shadow
+                          spreadRadius:
+                              1.0, // has the effect of extending the shadow
+                          offset: Offset(
+                            1.0, // horizontal, move right 10
+                            1.0, // vertical, move down 10
+                          ),
+                        )
+                      ],
+                      //  border: Border.all(color: Colors.blueAccent),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    // padding: EdgeInsets.all(15),
+                    // padding: EdgeInsets.only(left: 15, right: 15),
 
-                        //  decoration: BoxDecoration(
-                        //borderRadius: BorderRadius.circular(15),
-                        // color: Colors.red,
-                      ),
+                    child: Center(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
                           Container(
                             // Logo
                             // width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.height / 10,
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage("assets/images/logo.png"),
-                                // fit: BoxFit.cover
-                              ),
-                              // color: Colors.blueGrey,
-                            ),
+                                image: DecorationImage(
+                              image: AssetImage("assets/images/logo.png"),
+                              // fit: BoxFit.cover
+                            )),
                           ),
-
                           TextFormField(
                             controller: _controllerNome,
                             keyboardType: TextInputType.text,
@@ -237,24 +242,36 @@ class _HomeState extends State<Home> {
                           SizedBox(
                             height: 10,
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 10),
-                            child: Row(
-                              children: <Widget>[
-                                Text("Restaurante"),
-                                Switch(
-                                  value: _tipoUsuario,
-                                  onChanged: (bool valor) {
-                                    setState(() {
-                                      _tipoUsuario = valor;
-                                    });
-                                  },
-                                  activeColor: Color(0xff29AFA0),
-                                ),
-                                Text("Entregador"),
-                              ],
-                            ),
-                          ),
+                          /*  Row(
+                  children: <Widget>[
+                    Text("Restaurante"),
+                    Switch(
+                        value: _tipoUsuario,
+                        onChanged: (bool valor) {
+                          setState(() {
+                            _tipoUsuario = valor;
+                          });
+                        }),
+                    Text("Entregador"),
+                  ],
+                ),
+*/
+                          /*  Padding(
+                  padding: EdgeInsets.only(bottom: 10),
+                  child: Row(
+                    children: <Widget>[
+                      Text("Restaurante"),
+                      Switch(
+                          value: _tipoUsuario,
+                          onChanged: (bool valor) {
+                            setState(() {
+                              _tipoUsuario = valor;
+                            });
+                          }),
+                      Text("Entregador"),
+                    ],
+                  ),
+                ),*/
                           Padding(
                             padding: EdgeInsets.only(top: 16, bottom: 10),
                             child: RaisedButton(
@@ -272,19 +289,17 @@ class _HomeState extends State<Home> {
                                 padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                                 onPressed: () {}),
                           ),
-                          // SizedBox(
-                          //   height: 20,
-                          // ),
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
+            // ),
+          ],
         ),
       ),
-    );
+    )));
   }
 }

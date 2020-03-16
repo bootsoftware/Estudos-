@@ -45,9 +45,9 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/images/fundo.png
-    - assets/images/logo.png
-    - assets/images/moto.png
+    - assets/images/
+    # - assets/images/logo.png
+    # - assets/images/moto.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
